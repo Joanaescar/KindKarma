@@ -49,8 +49,10 @@ jobs:
           # ssh remote password
           pass: ${{ secrets.DC_PASS }}
           # execute pre-commands before scp
-          first_ssh: echo Hi
+          first_ssh: ls
           # scp from local to remote
-          # scp: # optional
-          # execute post-commands after scp
-          # last_ssh: # optional
+          scp: |
+          'index.js' => /home/nuno/karma/
+          'views/*' => /home/nuno/karma/
+          'views/*/*' => /home/nuno/karma/
+          'public/*' => /home/nuno/karma/
