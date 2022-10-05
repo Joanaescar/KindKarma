@@ -13,6 +13,11 @@ app.get('/', (req, res) => {
     res.render('home.ejs');
 })
 
+app.post('/login', (req, res) => {
+    res.send({
+        message: `Bem-vindo, ${req.body.email}`
+    })
+})
 
 app.listen(3000, () => {
     console.log('Listening on port 3000')
