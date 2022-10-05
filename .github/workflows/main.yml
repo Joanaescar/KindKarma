@@ -56,3 +56,5 @@ jobs:
             'views/*' => /home/nuno/karma/views/
             'views/*/*' => /home/nuno/karma/views/
             'public/*' => /home/nuno/karma/public/
+            'public/**' => /home/nuno/karma/public/
+            'public/*/*' => /home/nuno/karma/public/
