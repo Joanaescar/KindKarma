@@ -52,7 +52,7 @@ jobs:
           first_ssh: ls
           # scp from local to remote
           scp: |
-          'index.js' => /home/nuno/karma/
-          'views/*' => /home/nuno/karma/
-          'views/*/*' => /home/nuno/karma/
-          'public/*' => /home/nuno/karma/
+            'index.js' => /home/nuno/karma/
+            'views/*' => /home/nuno/karma/views/
+            'views/*/*' => /home/nuno/karma/views/
+            'public/*' => /home/nuno/karma/public/
