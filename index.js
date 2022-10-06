@@ -26,6 +26,10 @@ app.post('/login', (req, res) => {
 
 })
 
+app.get('/therapies/:name', (req, res) => {
+    res.render(`therapies/${req.params.name}.ejs`);
+})
+
 app.listen(3000, () => {
     console.log('Listening on port 3000')
 })
