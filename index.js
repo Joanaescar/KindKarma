@@ -14,9 +14,16 @@ app.get('/', (req, res) => {
 })
 
 app.post('/login', (req, res) => {
-    res.send({
-        message: `Bem-vindo, ${req.body.email}`
-    })
+    if (req.body.password === '123') {
+        res.send({
+            message: `Bem-vindo, ${req.body.email}`
+        })
+    } else {
+        res.status(400).send({
+            message: `Credenciais inválidas`
+        })
+    }
+
 })
 
 app.listen(3000, () => {
