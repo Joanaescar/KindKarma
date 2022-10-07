@@ -13,6 +13,12 @@ app.get('/', (req, res) => {
     res.render('home.ejs');
 })
 
+app.get('/sessions', (req, res) => {
+    res.render('sessions.ejs');
+})
+
+
+
 app.post('/login', (req, res) => {
     if (req.body.password === '123') {
         res.send({
