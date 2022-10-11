@@ -58,3 +58,4 @@ async function onLoginClick() {
 
     await login(emailInput, passwordInput);
 }
+
