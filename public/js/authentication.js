@@ -59,3 +59,36 @@ async function onLoginClick() {
     await login(emailInput, passwordInput);
 }
 
+async function register(username, email, password) {
+
+    const registerRequest = {
+        username: username,
+        email: email,
+        password: password
+    };
+
+    const requestHeaders = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+    try {
+        const response = await axios.post(`${getBaseUrl()}/register`, registerRequest, requestHeaders);
+        console.log(response);
+
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+async function onRegisterClick() {
+
+    const usernameInput = document.getElementById('signInUsernameInput').value;
+    const emailInput = document.getElementById('signInEmailInput').value;
+    const passwordInput = document.getElementById('signInPasswordInput').value;
+
+    await register(usernameInput, emailInput, passwordInput);
+}
+

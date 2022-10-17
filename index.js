@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const User = require('./src/models/user');
+const CryptoJS = require("crypto-js");
 
 mongoose.connect('mongodb://localhost:27017/kind-karma');
 
@@ -33,22 +34,22 @@ app.get('/users', async (req, res) => {
 })
 
 app.post('/register', async (req, res) => {
-    const user = new User(req.body);
+    const { username, email, password } = req.body;
+    const hashedPassword = CryptoJS.HmacSHA256(password, 'changeme').toString(); //TODO(Joana): Alterar a key para um sitio seguro
+    const user = new User({ username, email, password: hashedPassword });
     await user.save();
     res.send(user);
 })
 
-app.post('/login', (req, res) => {
-    if (req.body.password === '123') {
-        res.send({
-            message: `Bem-vindo, ${req.body.email}`
-        })
+app.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+    const hashedPassword = CryptoJS.HmacSHA256(password, 'changeme').toString(); //TODO(Joana): Alterar a key para um sitio seguro
+    const user = await User.findOne({ email, password: hashedPassword });
+    if (user === null) {
+        res.status(400).send({ message: 'Credenciais inválidas' })
     } else {
-        res.status(400).send({
-            message: `Credenciais inválidas`
-        })
+        res.send({ message: `Bem-vindo ${user.username}`, user: user })
     }
-
 })
 
 app.get('/therapies/:name', (req, res) => {
