@@ -12,7 +12,7 @@ async function login(email, password) {
     };
 
     try {
-        const response = await axios.post(`${getBaseUrl()}/login`, loginRequest, requestHeaders);
+        const response = await axios.post(`${getBaseUrl()}/auth/login`, loginRequest, requestHeaders);
         console.log(response);
 
         if (response.status === 200) {
@@ -38,7 +38,7 @@ async function login(email, password) {
         const toast = new bootstrap.Toast(toastDiv);
 
         if (error.response && error.response.data) {
-            toastMessage.innerHTML = error.response.data.message;
+            toastMessage.innerHTML = error.response.data.err.message;
         } else if (error.message) {
             toastMessage.innerHTML = error.message;
         } else {
@@ -74,7 +74,7 @@ async function register(username, email, password) {
     };
 
     try {
-        const response = await axios.post(`${getBaseUrl()}/register`, registerRequest, requestHeaders);
+        const response = await axios.post(`${getBaseUrl()}/auth/register`, registerRequest, requestHeaders);
         console.log(response);
 
     } catch (error) {
