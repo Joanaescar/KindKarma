@@ -1,0 +1,32 @@
+.home-navbar {
+    background-color: transparent;
+    color: #606C38;
+    --bs-navbar-color: #606C38;
+    --bs-navbar-hover-color: #606C38;
+    --bs-navbar-disabled-color: #606C38;
+    --bs-navbar-active-color: #606C38;
+    --bs-navbar-brand-color: #606C38;
+    --bs-navbar-brand-hover-color: #606C38;
+}
+
+.normal-navbar {
+    background-color: #A3B18A;
+    color: white;
+    --bs-navbar-background: #A3B18A;
+    --bs-navbar-color: white;
+    --bs-navbar-hover-color: white;
+    --bs-navbar-disabled-color: white;
+    --bs-navbar-active-color: white;
+    --bs-navbar-brand-color: white;
+    --bs-navbar-brand-hover-color: white;
+}
+
+.home-login-button {
+    color: #606C38;
+    --bs-btn-border-color: #606C38;
+}
+
+.normal-login-button {
+    color: white;
+    --bs-btn-border-color: white;
+}
