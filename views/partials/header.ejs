@@ -64,50 +64,22 @@
     </div>
 
     <%- include('authentication/modal-login') %>
-        <%- include('authentication/register') %>
+        <%- include('authentication/modal-register') %>
+            <%- include('authentication/modal-reset') %>
 
+                <script>
+                    const navbar = document.getElementById('navbar');
+                    const button = document.getElementById('buttonLogin');
+                    const icon = document.getElementById('buttonLoginIcon');
+                    if (window.location.pathname === '/') {
+                        navbar.classList.add('home-navbar');
+                        button.classList.add('home-login-button');
+                        icon.classList.add('home-login-button');
+                    } else {
+                        navbar.classList.add('normal-navbar');
+                        button.classList.add('normal-login-button');
+                        icon.classList.add('normal-login-button');
+                    }
+                </script>
 
-
-
-            <div class="modal" id="forgotPasswordModal" aria-hidden="true" aria-labelledby="forgotPasswordModal"
-                tabindex="-1">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="forgotPasswordModal">Esqueceu a password</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="input-group mb-3">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="forgotPasswordEmailInput"
-                                        placeholder="Email">
-                                    <label for="forgotPasswordEmailInput">Email</label>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" data-bs-target="#loginModal"
-                                    data-bs-toggle="modal">Save changes</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <script>
-                const navbar = document.getElementById('navbar');
-                const button = document.getElementById('buttonLogin');
-                const icon = document.getElementById('buttonLoginIcon');
-                if (window.location.pathname === '/') {
-                    navbar.classList.add('home-navbar');
-                    button.classList.add('home-login-button');
-                    icon.classList.add('home-login-button');
-                } else {
-                    navbar.classList.add('normal-navbar');
-                    button.classList.add('normal-login-button');
-                    icon.classList.add('normal-login-button');
-                }
-            </script>
-
-            <script src="/js/form-submit.js"></script>
+                <script src="/js/form-submit.js"></script>

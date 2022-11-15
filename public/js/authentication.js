@@ -59,6 +59,34 @@ async function onLoginClick() {
     await login(emailInput, passwordInput);
 }
 
+async function onLoginEnter(event) {
+    if (event.keyCode === 13) {
+        console.log('Enter');
+        await onLoginClick();
+        return;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 async function register(username, email, password) {
 
     const registerRequest = {
