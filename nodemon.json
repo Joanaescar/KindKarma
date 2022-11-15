@@ -1,0 +1,9 @@
+{
+    "exec": "npm start",
+    "watch": [
+        "src/*",
+        "public/*",
+        "views/*"
+    ],
+    "ext": "ts, js, html, css, ejs"
+}

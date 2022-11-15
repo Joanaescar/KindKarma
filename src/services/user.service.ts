@@ -1,6 +1,7 @@
-const User = require('../models/user');
+import { User } from '../models/user';
 
-class UserService {
+export class UserService {
+
     constructor() {
     }
 
@@ -8,15 +9,14 @@ class UserService {
         return await User.find({});
     }
 
-    async createUser(userInformation) {
+    async createUser(userInformation: object) {
         const user = new User(userInformation);
         await user.save();
         return user;
     }
 
-    async findOne(searchCriteria) {
+    async findOne(searchCriteria: object) {
         return await User.findOne(searchCriteria);
     }
 };
 
-module.exports = UserService;

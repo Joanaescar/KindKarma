@@ -77,8 +77,39 @@ async function register(username, email, password) {
         const response = await axios.post(`${getBaseUrl()}/auth/register`, registerRequest, requestHeaders);
         console.log(response);
 
+        if (response.status === 200) {
+
+            const signInModal = document.getElementById('signInModal');
+            const myModalAlternative = bootstrap.Modal.getInstance(signInModal);
+            console.log(myModalAlternative);
+            myModalAlternative.hide();
+
+            const toastMessage = document.getElementById('signInToastMessage');
+            toastMessage.innerHTML = response.data.message;
+            const toastDiv = document.getElementById('signInToast');
+            const toast = new bootstrap.Toast(toastDiv);
+            toast.show();
+            setTimeout(() => window.location.pathname = '/profile', 2000);
+        } else {
+            console.log('Falhou')
+        }
+
     } catch (error) {
         console.log(error);
+
+        const toastMessage = document.getElementById('signInToastMessage');
+        const toastDiv = document.getElementById('signInToast');
+        const toast = new bootstrap.Toast(toastDiv);
+
+        if (error.response && error.response.data) {
+            toastMessage.innerHTML = error.response.data.err.message;
+        } else if (error.message) {
+            toastMessage.innerHTML = error.message;
+        } else {
+            toastMessage.innerHTML = 'Erro inesperado';
+        }
+
+        toast.show()
     }
 
 }

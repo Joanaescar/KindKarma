@@ -1,0 +1,49 @@
+<div class="modal" id="signInModal" aria-hidden="true" aria-labelledby="signInModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="signInModal">Criar nova conta</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="signInUsernameInput" placeholder="Username">
+                        <label for="signInUsernameInput">Username</label>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="signInEmailInput" placeholder="name@example.com">
+                        <label for="signInEmailInput">Email</label>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="form-floating">
+                        <input type="password" class="form-control form-submit" id="signInPasswordInput"
+                            placeholder="Password">
+                        <label for="signInPasswordInput">Password</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-target="#loginModal"
+                    data-bs-toggle="modal">Voltar</button>
+                <button type="button" class="btn btn-primary" onclick="onRegisterClick()">Registar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="toast-container bottom-0 end-0 p-5">
+    <div id="signInToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="mr-auto">Bootstrap</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body" id="signInToastMessage">
+            Hello, world! This is a toast message.
+        </div>
+    </div>
+</div>

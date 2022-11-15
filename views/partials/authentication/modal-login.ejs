@@ -1,0 +1,46 @@
+<div class="modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="loginModalLabel">Login</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">@</span>
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="loginEmailInput" placeholder="name@example.com">
+                        <label for="loginEmailInput">Email</label>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="form-floating">
+                        <input type="password" class="form-control form-submit" id="loginPasswordInput"
+                            placeholder="Password">
+                        <label for="loginPasswordInput">Password</label>
+                    </div>
+                    <span class="input-group-text"><i class="bi bi-key"></i></span>
+                </div>
+                <p>Criar <a href="" data-bs-target="#signInModal" data-bs-toggle="modal">nova</a> conta</p>
+                <p>Esqueceu a sua <a href="" data-bs-target="#forgotPasswordModal" data-bs-toggle="modal">password</a>?
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="onLoginClick()">Login</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="toast-container bottom-0 end-0 p-5">
+    <div id="loginToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="mr-auto">Bootstrap</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body" id="loginToastMessage">
+            Hello, world! This is a toast message.
+        </div>
+    </div>
+</div>
