@@ -1,0 +1,38 @@
+<div class="modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="loginModalLabel">Login</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" class="validated-form" novalidate>
+                    <div class="mb-3">
+                        <label class="form-label" for="loginEmailInput">Email</label>
+                        <input class="form-control" type="email" id="loginEmailInput" name="email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="loginPasswordInput">Password</label>
+                        <input class="form-control" type="password" id="loginPasswordInput" name="password" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="onLoginClick()">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container bottom-0 end-0 p-5">
+        <div id="loginToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="mr-auto">Bootstrap</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="loginToastMessage">
+                Hello, world! This is a toast message.
+            </div>
+        </div>
+    </div>

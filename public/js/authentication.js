@@ -26,7 +26,10 @@ async function login(email, password) {
             toastMessage.innerHTML = response.data.message;
             const toastDiv = document.getElementById('loginToast');
             const toast = new bootstrap.Toast(toastDiv);
-            toast.show()
+            toast.show();
+
+            localStorage.setItem('user', JSON.stringify(response.data.user));
+            setTimeout(() => window.location.pathname = '/profile', 2000);
         } else {
             console.log('Falhou')
         }
@@ -59,33 +62,14 @@ async function onLoginClick() {
     await login(emailInput, passwordInput);
 }
 
-async function onLoginEnter(event) {
-    if (event.keyCode === 13) {
-        console.log('Enter');
-        await onLoginClick();
-        return;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+document.getElementById('loginPasswordInput')
+    .addEventListener('keydown', async function (event) {
+        if (event.key === 'Enter') {
+            console.log('Enter');
+            await onLoginClick();
+            return;
+        }
+    })
 
 async function register(username, email, password) {
 
@@ -117,6 +101,9 @@ async function register(username, email, password) {
             const toastDiv = document.getElementById('signInToast');
             const toast = new bootstrap.Toast(toastDiv);
             toast.show();
+
+            localStorage.setItem('user', JSON.stringify(response.data.user));
+            // const user = JSON.parse(localStorage.getItem('user'));
             setTimeout(() => window.location.pathname = '/profile', 2000);
         } else {
             console.log('Falhou')
